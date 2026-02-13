@@ -11,6 +11,7 @@
                     <th>Descripcion</th>
                     <th>Profesor</th>
                     <th>Links</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                           </li>
                       </ul>
                     </td>
+                    <td>
+                      <button class="eliminar-btn" @click="eliminarCursos(item.id)">Eliminar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -34,12 +38,16 @@
 </template>
 
 <script>
-import {facadeConsultarTodosCursos, } from'../clients/AcademiaClient'
+import {facadeConsultarTodosCursos, facadeEliminarCursos} from'../clients/AcademiaClient'
 export default {
     methods:{
         async consultarCursos(){
             const resultado = await facadeConsultarTodosCursos();
             this.json=resultado;
+        },
+        async eliminarCursos(id){
+            await facadeEliminarCursos(id);
+            this.consultarCursos();
         }
     },
     data(){
@@ -119,9 +127,9 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #e0f7e0; /* resalta fila al pasar mouse */
 }
-
-/* Opcional: texto centrado en algunas columnas */
-td:nth-child(1), td:nth-child(5) {
-  text-align: center;
+.eliminar-btn {
+  background-color: #e74c3c; 
+  width: 100px;
 }
+
 </style>

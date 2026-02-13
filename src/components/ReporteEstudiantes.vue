@@ -11,6 +11,7 @@
                     <th>Email</th>
                     <th>Celular</th>
                     <th>Links</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                         </li>
                       </ul>
                     </td>
+                    <td>
+                      <button class="eliminar-btn" @click="eliminarEstudiantes(item.id)">Eliminar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -34,12 +38,16 @@
 </template>
 
 <script>
-import {facadeTodosEstudiantes} from'../clients/AcademiaClient'
+import {facadeTodosEstudiantes, facadeEliminarEstudiantes} from'../clients/AcademiaClient'
 export default {
     methods:{
         async consultarEstudiantes(){
             const resultado = await facadeTodosEstudiantes();
             this.json=resultado;
+        },
+        async eliminarEstudiantes(id){
+            await facadeEliminarEstudiantes(id);
+            this.consultarEstudiantes();
         }
     },
     data(){
@@ -119,9 +127,8 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #e0f7e0; /* resalta fila al pasar mouse */
 }
-
-/*texto centrado en algunas columnas */
-td:nth-child(1), td:nth-child(5) {
-  text-align: center;
+.eliminar-btn {
+  background-color: #e74c3c; 
+  width: 100px;
 }
 </style>
