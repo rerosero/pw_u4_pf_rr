@@ -6,7 +6,7 @@
     <button v-if="estaLogueado || esInvitado" class="btn-logout" @click="logout">Cerrar Sesión</button>
   </header>
   <div class="container">
-    <nav class="navbar" v-if="$route.path !== '/login'">
+    <nav class="navbar" v-if="$route.path !== '/'">
       <!-- Disponible para todos (Invitado y Admin) -->
       <router-link to="/reporte-cursos">Reporte Cursos</router-link>
       <router-link to="/reporte-estudiantes">Reporte Estudiantes</router-link>
