@@ -6,7 +6,7 @@ const baseUrl1= 'http://localhost:8081/academia/api/v1.0/estudiantes';
 const consultarTodosCursos = async()=>{
     const token = localStorage.getItem('token');
 
-    const data = await axios.get(`${baseUrl}`,{headers:{Authorization: `Bearer ${token}`}}).then(r=>r.data);
+    const data = await axios.get(`${baseUrl}`).then(r=>r.data);
     return data;
 }
 const consultaridCursos = async(id)=>{
@@ -55,7 +55,7 @@ export const facadeGuardarCursos = async(body)=>{
 //----------------------------------------------------------------//
 const listaEstudiantes= async()=>{
     const token = localStorage.getItem('token');
-    const data = await axios.get(`${baseUrl1}`, {headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
+    const data = await axios.get(`${baseUrl1}`).then(r=>r.data);
     return data;
 }
 

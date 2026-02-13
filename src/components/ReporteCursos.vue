@@ -11,7 +11,7 @@
                     <th>Descripcion</th>
                     <th>Profesor</th>
                     <th>Links</th>
-                    <th>Acciones</th>
+                    <th v-if="estaLogueado">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                       </ul>
                     </td>
                     <td>
-                      <button class="eliminar-btn" @click="eliminarCursos(item.id)">Eliminar</button>
+                      <button class="eliminar-btn" @click="eliminarCursos(item.id)" v-if="estaLogueado">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
@@ -54,8 +54,12 @@ export default {
         return{
             json:null
         }
-    }
-
+    },
+    computed:{
+      estaLogueado(){
+        return localStorage.getItem('token')!==null;
+       }
+    },
 }
 </script>
 

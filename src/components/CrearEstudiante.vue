@@ -3,22 +3,22 @@
         <h1>Crear Estudiante</h1>
         <form @submit.prevent="submit">
             <div class="campo">
-                <label>Nombre</label>
+                <label>Nombre:</label>
                 <input v-model="estudiante.nombre" required />
             </div>
 
             <div class="campo">
-                <label>Apellido</label>
+                <label>Apellido:</label>
                 <input v-model="estudiante.apellido" required />
             </div>
 
             <div class="campo">
-                <label>Email</label>
+                <label>Email:</label>
                 <input v-model="estudiante.email" type="email" required />
             </div>
 
             <div class="campo">
-                <label>Celular</label>
+                <label>Celular:</label>
                 <input v-model="estudiante.celular" required />
             </div>
 
@@ -84,9 +84,11 @@ form div {
 
 label {
     /*ocupa toda la linea */
-    display: block;
+    display: flex;
     /*espacio entre el label y el input */
     margin-bottom: 5px;
+    align-items: first baseline;
+    margin-left: 8%;
 }
 
 input {

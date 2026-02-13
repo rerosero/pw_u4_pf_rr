@@ -27,7 +27,7 @@ const routes = [
     name:'reporte-cursos',
     component: ReporteCursosView,
     meta:{
-      requiereAutorizacion:true
+      requiereAutorizacion:false
     }
   },
   {
@@ -35,7 +35,7 @@ const routes = [
     name:'reporte-estudiantes',
     component: ReporteEstudiantesView,
     meta:{
-      requiereAutorizacion:true
+      requiereAutorizacion:false
     }
   },
   {
@@ -90,7 +90,7 @@ router.beforeEach((to, from, next)=>{
     const estaAutenticado = localStorage.getItem("estaAutenticado");
     const token = localStorage.getItem('token');
     if(!estaAutenticado){
-      next({name:'Login'})
+      next({name:'login'})
     }else{
       next();
     }

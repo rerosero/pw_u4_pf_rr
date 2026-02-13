@@ -12,15 +12,18 @@
     <button @click="buscarCurso">Buscar</button>
 
     <!-- Mostrar formulario solo si existe curso -->
-    <div v-if="curso.codigo" class="datos">
+    <div v-if="cursoCargado" class="datos">
       <hr />
-
+      <label>Código:</label>
       <input v-model="curso.codigo" placeholder="Código" />
+      <label >Nombre:</label>
       <input v-model="curso.nombre" placeholder="Nombre" />
+      <label >Profesor:</label>
       <input v-model="curso.profesor" placeholder="Profesor" />
+      <label >Descripción:</label>
       <input v-model="curso.descripcion" placeholder="Descripción"/>
 
-      <button @click="actualizar">Guardar Cambios</button>
+      <button @click="actualizar"  >Guardar Cambios</button>
     </div>
 
     <!-- Mensaje -->
@@ -44,7 +47,8 @@ export default {
         profesor: "",
         descripcion:""
       },
-      mensaje: ""
+      mensaje: "",
+      cursoCargado: false
     };
   },
 
@@ -56,8 +60,10 @@ export default {
       try {
         this.curso = await facadeConsultarIdCursos(this.id);
         this.mensaje = "Curso cargado. Puedes editarlo.";
-      } catch {
+        this.cursoCargado = true;
+      } catch  {
         this.mensaje = "No se encontró el curso con ese ID.";
+        this.cursoCargado = false;
         this.limpiar();
       }
     },
@@ -77,10 +83,13 @@ export default {
       this.curso = {
         codigo: "",
         nombre: "",
-        profesor: ""
+        profesor: "",
+        descripcion:""
       };
+      this.cursoCargado = false;
     }
-  }
+  },
+  
 };
 </script>
 
@@ -112,11 +121,16 @@ button {
   cursor: pointer;
   gap: 10px;
   margin-left: 10px;
-  width: 75px;
+  width: auto;
 }
 .p {
   font-weight: bold;
   margin-top: 10px;
+}
+label {
+  font-weight: bold;
+  display: flex;
+
 }
 
 </style>

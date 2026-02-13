@@ -8,14 +8,16 @@
         <button @click="buscarEstudiante">Buscar</button>
 
         <!-- Mostrar formulario solo si existe estudiante -->
-        <div v-if="estudiante.nombre" class="datos">
+        <div v-if="estudianteCargado" class="datos">
             <hr />
-
-            <input v-model="estudiante.nombre" placeholder="Nombre" />
-            <input v-model="estudiante.apellido" placeholder="Apellido" />
-            <input v-model="estudiante.email" placeholder="Email" />
-            <input v-model="estudiante.celular" placeholder="Celular" />
-
+            <label for="nombre">Nombre:</label>
+            <input v-model="estudiante.nombre" placeholder="Nombre" id="nombre"/>
+            <label for="apellido">Apellido:</label>
+            <input v-model="estudiante.apellido" placeholder="Apellido" id="apellido"/>
+            <label for="email">Email:</label>
+            <input v-model="estudiante.email" placeholder="Email" id="email"/>
+            <label for="celular">Celular:</label>
+            <input v-model="estudiante.celular" placeholder="Celular" id="celular"/>
             <button @click="actualizar">Guardar Cambios</button>
         </div>
 
@@ -36,7 +38,8 @@ export default {
                 email: "",
                 celular: ""
             },
-            mensaje: ""
+            mensaje: "",
+            estudianteCargado: false
         };
     },
     methods: {
@@ -47,8 +50,10 @@ export default {
             try {
                 this.estudiante = await facadeIdEstudiantes(this.id);
                 this.mensaje = "Estudiante cargado. Puedes editarlo.";
+                this.estudianteCargado = true;
             } catch (error) {
                 this.mensaje = "No se encontró el estudiante con ese ID.";
+                this.estudianteCargado = false;
                 this.limpiar();
             }
         },
@@ -71,6 +76,7 @@ export default {
                 email: "",
                 celular: ""
             };
+            this.estudianteCargado = false;
         }
     }
 
@@ -105,10 +111,15 @@ button {
   cursor: pointer;
   gap: 10px;
   margin-left: 10px;
-  width: 75px;
+  width: auto;
 }
 .p {
   font-weight: bold;
   margin-top: 10px;
+}
+label {
+  font-weight: bold;
+  display: flex;
+  
 }
 </style>
