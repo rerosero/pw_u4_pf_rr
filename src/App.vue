@@ -12,7 +12,9 @@
       <router-link to="/matricula">Matricula</router-link>|
       <router-link to="/estudiantes-matriculados">Estudiantes Matriculados</router-link>|
       <router-link to="/actualizar-curso">Actualizar Curso</router-link>|
-      <router-link to="/actualizar-estudiante">Actualizar Estudiante</router-link>
+      <router-link to="/actualizar-estudiante">Actualizar Estudiante</router-link>|
+      <router-link to="/guardar-estudiante">Crear Estudiante</router-link>
+      
     </nav>
     <router-view />
   </div>
