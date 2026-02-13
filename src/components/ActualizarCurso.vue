@@ -106,12 +106,13 @@ button {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  background-color:green;
+  background-color:#4caf50;
   color: white;
   font-size: 16px;
   cursor: pointer;
   gap: 10px;
   margin-left: 10px;
+  width: 75px;
 }
 .p {
   font-weight: bold;

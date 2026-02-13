@@ -150,7 +150,7 @@ button {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  width: 100%;
 }
 
 button:hover {

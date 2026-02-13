@@ -1,6 +1,6 @@
 <template>
     <div class="crear-estudiante">
-        <h2>Crear Estudiante</h2>
+        <h1>Crear Estudiante</h1>
         <form @submit.prevent="submit">
             <div class="campo">
                 <label>Nombre</label>
@@ -72,82 +72,41 @@ export default {
 
 <style scoped>
 .crear-estudiante {
-    max-width: 380px;
-    /* más angosto */
-    margin: 30px auto;
-    /* menos espacio arriba */
-    padding: 18px;
-    /* menos padding */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
     background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-h2 {
-    text-align: center;
+form div {
     margin-bottom: 15px;
-    font-size: 18px;
-    /* título más pequeño */
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* menos espacio entre campos */
-}
-
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 }
 
 label {
-    font-size: 13px;
-    /* más pequeño */
-    font-weight: 600;
-    color: #444;
+    /*ocupa toda la linea */
+    display: block;
+    /*espacio entre el label y el input */
+    margin-bottom: 5px;
 }
 
 input {
-    padding: 7px;
-    /* menos alto */
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 13px;
-    transition: 0.2s ease;
-}
-
-input:focus {
-    outline: none;
-    border-color: #2e7d32;
-    box-shadow: 0 0 3px rgba(46, 125, 50, 0.3);
+    width: 500px;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 button {
-    margin-top: 8px;
-    padding: 8px;
-    border-radius: 5px;
+    padding: 10px;
     border: none;
-    background-color: #2e7d32;
+    border-radius: 5px;
+    background-color: #4caf50;
     color: white;
-    font-size: 14px;
-    /* botón más pequeño */
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.2s ease;
+    width: 500px;
 }
 
 button:hover {
-    background-color: #1b5e20;
-}
-
-p {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 600;
+    background-color: #45a049;
 }
 </style>

@@ -6,6 +6,7 @@ import EstudiantesMatriculadosView from '@/views/EstudiantesMatriculadosView.vue
 import ActualizarCursoView from '@/views/ActualizarCursoView.vue';
 import ActualizarEstudianteView from '@/views/ActualizarEstudianteView.vue';
 import CrearEstudianteView from '@/views/CrearEstudianteView.vue';
+import CrearCursoView from '@/views/CrearCursoView.vue';
 
 const routes = [
   {
@@ -65,6 +66,14 @@ const routes = [
     path:'/guardar-estudiante',
     name:'guardar-estudiante',
     component: CrearEstudianteView,
+    meta:{
+      requiereAutorizacion:true
+    }
+  },
+  {
+    path:"/guardar-curso",
+    name:'guardar-curso',
+    component: CrearCursoView,
     meta:{
       requiereAutorizacion:true
     }

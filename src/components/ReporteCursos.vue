@@ -118,10 +118,6 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-/* Filas alternas */
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
 
 /* Hover sobre filas */
 tbody tr:hover {
