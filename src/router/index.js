@@ -1,36 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import LoggingView from '@/views/LoggingView.vue'
 import ReporteCursosView from '@/views/ReporteCursosView.vue';
 import ReporteEstudiantesView from '@/views/ReporteEstudiantesView.vue';
 import EstudiantesMatriculadosView from '@/views/EstudiantesMatriculadosView.vue';
+import ActualizarCursoView from '@/views/ActualizarCursoView.vue';
 
 const routes = [
   {
     path:'/',
     name: 'login',
     component: LoggingView
-  },
-   {
-    path: '/login',
-    name: 'Login',
-    component: LoggingView
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: HomeView,
-    meta:{
-      requiereAutorizacion: true,
-    }
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue'),
-    meta:{
-      requiereAutorizacion:true
-    }
   },
   {
     path:'/matricula',
@@ -60,6 +39,14 @@ const routes = [
     path:'/estudiantes-matriculados',
     name:'estudiantes-matriculados',
     component: EstudiantesMatriculadosView,
+    meta:{
+      requiereAutorizacion:true
+    }
+  },
+  {
+    path:'/actualizar-curso',
+    name:'actualizar-curso',
+    component: ActualizarCursoView,
     meta:{
       requiereAutorizacion:true
     }
