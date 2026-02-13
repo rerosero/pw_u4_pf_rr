@@ -83,9 +83,7 @@ form div {
 }
 
 label {
-    /*ocupa toda la linea */
     display: flex;
-    /*espacio entre el label y el input */
     margin-bottom: 5px;
     align-items: first baseline;
     margin-left: 8%;

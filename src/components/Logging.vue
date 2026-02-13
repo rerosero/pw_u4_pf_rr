@@ -6,6 +6,7 @@
         <label> Contraseña </label>
         <input v-model="password" type="password" placeholder="Contraseña">
         <button @click="login">Iniciar Sesión</button>
+        <button @click="ingresarInvitado"> Invitado</button>
         <p class="error">{{ mensaje }}</p>
         <p class="exito">{{ exito }}</p>
     </div>
@@ -53,6 +54,14 @@ export default {
             }
 
         },
+        ingresarInvitado() {
+            localStorage.setItem('esInvitado', 'true');
+            // Remove token if any just in case
+            localStorage.removeItem('token');
+            localStorage.removeItem('estaAutenticado');
+            // Redirect to reports
+            this.$router.push({ name: 'reporte-cursos' });
+        }
 
     }
 }
@@ -85,7 +94,7 @@ input {
     outline: none;
     font-size: 1rem;
     transition: all 0.3s ease;
-    
+
 }
 
 input:focus {

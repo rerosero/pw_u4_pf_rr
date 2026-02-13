@@ -3,21 +3,27 @@
     <div class="logo-titulo">
       <h1>Academia de Cursos</h1>
     </div>
-    <button v-if="estaLogueado" class="btn-logout" @click="logout">Cerrar Sesión</button>
+    <button v-if="estaLogueado || esInvitado" class="btn-logout" @click="logout">Cerrar Sesión</button>
   </header>
   <div class="container">
-    <nav class="navbar">
+    <nav class="navbar" v-if="$route.path !== '/login'">
+      <!-- Disponible para todos (Invitado y Admin) -->
       <router-link to="/reporte-cursos">Reporte Cursos</router-link>
       <router-link to="/reporte-estudiantes">Reporte Estudiantes</router-link>
-      <router-link to="/matricula">Matricula</router-link>
-      <router-link to="/estudiantes-matriculados">Estudiantes Matriculados</router-link>
-      <router-link to="/actualizar-curso">Actualizar Curso</router-link>
-      <router-link to="/actualizar-estudiante">Actualizar Estudiante</router-link>
-      <router-link to="/guardar-estudiante">Crear Estudiante</router-link>
-      <router-link to="/guardar-curso">Crear Curso</router-link>
-      
+
+      <!-- Disponible solo para Admin (Token) -->
+      <template v-if="estaLogueado">
+        <router-link to="/matricula">Matricula</router-link>
+        <router-link to="/estudiantes-matriculados">Estudiantes Matriculados</router-link>
+        <router-link to="/actualizar-curso">Actualizar Curso</router-link>
+        <router-link to="/actualizar-estudiante">Actualizar Estudiante</router-link>
+        <router-link to="/guardar-estudiante">Crear Estudiante</router-link>
+        <router-link to="/guardar-curso">Crear Curso</router-link>
+      </template>
     </nav>
-    <router-view />
+    <main>
+      <router-view />
+    </main>
   </div>
 
 </template>
@@ -26,7 +32,8 @@
 export default {
   data() {
     return {
-      estaLogueado: false // bandera para saber si mostrar botón
+      estaLogueado: false, // bandera para saber si mostrar botón
+      esInvitado: false
     }
   },
 
@@ -39,13 +46,21 @@ export default {
     verificarLogin() {
       // Revisamos si hay token en localStorage
       this.estaLogueado = !!localStorage.getItem("token");
+      this.esInvitado = localStorage.getItem("esInvitado") === 'true';
     },
 
     logout() {
       localStorage.removeItem("estaAutenticado");
       localStorage.removeItem("token");
+      localStorage.removeItem("esInvitado");
       this.estaLogueado = false; // ocultar botón al cerrar sesión
+      this.esInvitado = false;
       this.$router.push({ name: "login" });
+    }
+  },
+  watch: {
+    $route() {
+      this.verificarLogin();
     }
   }
 }

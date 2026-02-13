@@ -31,13 +31,13 @@ import { facadeConsultarTodosCursos, facadeTodosEstudiantes, facadeMatricula } f
 export default {
   data() {
     return {
-      cursos: [],                 // Lista de cursos
-      estudiantes: [],            // Lista de estudiantes
-      cursoSeleccionado: null,    // Curso elegido por el usuario
-      estudianteSeleccionado: null, // Estudiante elegido por el usuario
-      mensaje: '',                // Mensaje de error
-      exito: '',                  // Mensaje de éxito
-      timer: null                 // Temporizador para limpiar mensajes
+      cursos: [],
+      estudiantes: [],
+      cursoSeleccionado: null,
+      estudianteSeleccionado: null,
+      mensaje: '',
+      exito: '',
+      timer: null
     };
   },
 
@@ -130,7 +130,8 @@ export default {
   gap: 15px;
 }
 
-label, select {
+label,
+select {
   display: block;
   margin-bottom: 10px;
 }

@@ -64,14 +64,14 @@ export default {
 </script>
 
 <style scoped>
-/* Contenedor principal */
+
 .container {
-  max-width: 900px;          /* ancho máximo del reporte */
-  margin: 50px auto;          /* centrado horizontal y algo de margen superior */
-  padding: 20px;              /* espacio interno */
-  background-color: #f9f9f9;  /* fondo gris claro */
-  border-radius: 10px;        /* esquinas redondeadas */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* sombra ligera */
+  max-width: 900px;          
+  margin: 50px auto;          
+  padding: 20px;              
+  background-color: #f9f9f9;  
+  border-radius: 10px;        
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -88,10 +88,10 @@ h1 {
 button {
   width: 150px;
   padding: 10px;
-  margin: 0 auto;            /* centra el botón */
+  margin: 0 auto;          
   border: none;
   border-radius: 5px;
-  background-color: #4caf50; /* verde */
+  background-color: #4caf50; 
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -105,11 +105,10 @@ button:hover {
 /* Tabla */
 table {
   width: 100%;
-  border-collapse: collapse; /* quita espacios entre celdas */
+  border-collapse: collapse;
   text-align: left;
 }
 
-/* Encabezados de la tabla */
 th {
   background-color: #4caf50;
   color: white;

@@ -67,42 +67,31 @@ export default {
 </script>
 
 <style scoped>
-/* Contenedor principal */
 .container {
   max-width: 900px;
-  /* ancho máximo del reporte */
   margin: 50px auto;
-  /* centrado horizontal y algo de margen superior */
   padding: 20px;
-  /* espacio interno */
   background-color: #f9f9f9;
-  /* fondo gris claro */
   border-radius: 10px;
-  /* esquinas redondeadas */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  /* sombra ligera */
   display: flex;
   flex-direction: column;
   gap: 15px;
   font-family: Arial, sans-serif;
 }
 
-/* Título */
 h1 {
   text-align: center;
   color: #333;
 }
 
-/* Botón */
 button {
   width: 150px;
   padding: 10px;
   margin: 0 auto;
-  /* centra el botón */
   border: none;
   border-radius: 5px;
   background-color: #4caf50;
-  /* verde */
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -117,7 +106,6 @@ button:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  /* quita espacios entre celdas */
   text-align: left;
 }
 
@@ -137,7 +125,6 @@ td {
 /* Hover sobre filas */
 tbody tr:hover {
   background-color: #e0f7e0;
-  /* resalta fila al pasar mouse */
 }
 
 .eliminar-btn {
