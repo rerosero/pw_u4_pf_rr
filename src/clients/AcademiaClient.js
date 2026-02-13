@@ -55,33 +55,34 @@ export const facadeGuardarCursos = async(body)=>{
 //----------------------------------------------------------------//
 const listaEstudiantes= async()=>{
     const token = localStorage.getItem('token');
-    const data = await axios.get(`${baseUrl1}`, {headers:{Authorization:`Bearer${token}`}}).then(r=>r.data);
+    const data = await axios.get(`${baseUrl1}`, {headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
 }
 
 const obtenerIdEstudiante = async(id) =>{
     const token = localStorage.getItem('token');
-    const data = await axios.get(`${baseUrl1}/${id}`,{headers:{Authorization:`Bearer${token}`}}).then(r=>r.data);
+    const data = await axios.get(`${baseUrl1}/${id}`,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
 }
 const guardarEstudiante = async(body)=>{
     const token = localStorage.getItem('token');
-    const data = await axios.post(`${baseUrl1}`,body,{headers:{Authorization:`Bearer${token}`}}).then(r=R.data);
+    const data = await axios.post(`${baseUrl1}`,body,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
+
 }
 const actualizarEstudiantes = async(id, body)=>{
     const token = localStorage.getItem('token');
-    const data = await axios.put(`${baseUrl1}/${id}`,body,{headers:{Authorization:`Bearer${token}`}}).then(r=>r.data);
+    const data = await axios.put(`${baseUrl1}/${id}`,body,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
 }
 const actualizarParcialEstudiantes = async(id, body) =>{
     const token = localStorage.getItem('token');
-    const data = await axios.patch(`${baseUrl1}/${id}`,body,{headers:{Authorization:`Bearer${token}`}}).then(r=>r.data);
+    const data = await axios.patch(`${baseUrl1}/${id}`,body,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
 }
 const eliminarEstudiante = async(id)=>{
     const token = localStorage.getItem('token');
-    const data = await axios.delete(`${baseUrl1}/${id}`,{headers:{Authorization:`Bearer${token}`}}).then(r=>r.data);
+    const data = await axios.delete(`${baseUrl1}/${id}`,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.data);
     return data;
 }
  export const facadeTodosEstudiantes = async()=>{
