@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="est in estudiantes" :key="est.id">
+        <tr v-for="est in estudiantesMatriculados" :key="est.id">
           <td>{{ est.id }}</td>
           <td>{{ est.nombre }}</td>
           <td>{{ est.apellido }}</td>
@@ -53,6 +53,11 @@ export default {
         console.error(err);
         alert("No se pudo cancelar la matrícula");
       }
+    }
+  }, 
+  computed:{
+    estudiantesMatriculados() {
+      return this.estudiantes.filter(est => est.cursos && est.cursos.length > 0);
     }
   }
 };

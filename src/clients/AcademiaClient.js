@@ -99,7 +99,7 @@ const eliminarEstudiante = async(id)=>{
  export const facadeActualizarParcialEstudiantes = async(id,body)=>{
     return actualizarParcialEstudiantes(id,body);
  }
- export const facadeEliminarEstudiante= async(id)=>{
+ export const facadeEliminarEstudiantes= async(id)=>{
     return eliminarEstudiante(id);
  }
 //------------------------------------------------//
