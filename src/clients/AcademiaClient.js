@@ -49,6 +49,9 @@ export const facadeActualizarParcialCursos = async(id, body)=>{
 export const facadeEliminarCursos = async(id)=>{
     return await eliminarCursos(id);
 }
+export const facadeGuardarCursos = async(body)=>{
+    return await guardarCursos(body);
+}
 //----------------------------------------------------------------//
 const listaEstudiantes= async()=>{
     const token = localStorage.getItem('token');

@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {facadeConsultarTodosCursos} from'../clients/AcademiaClient'
+import {facadeConsultarTodosCursos, } from'../clients/AcademiaClient'
 export default {
     methods:{
         async consultarCursos(){
